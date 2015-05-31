@@ -1,0 +1,68 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+</head>
+
+<body>
+
+        <nav id="navbar" class="navbar navbar-inverse">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">HEYY!!</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+             <ul id="loginnavbar" class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}  <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+                    <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>
+                  </ul>
+                </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'auth_login' %}">{% trans "Log in" %}</a>
+                    </li>
+                {% endif %}
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+    <div id="footer">
+    {% block footer %}
+        <div class="footer navbar-inverse navbar-fixed-bottom">
+            <ul class="nav navbar-nav">
+                <li><a href="#">{% trans "Help" %}</a></li>
+                <li><a href="#">{% trans "How to use?" %}</a></li>
+            <ul>
+        </div>
+    {% endblock %}
+    </div>
+        <link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap-theme.min.css" %}">
+        <!--[if lt IE 9]>
+            <script src="{% static "lib/html5shiv.min.js" %}"></script>
+        <![endif]-->
+        <script src="{% static "lib/jquery.min.js" %}"></script>
+        <script src="{% static "lib/bootstrap/js/bootstrap.min.js" %}"></script>   
+    {% block othersscipt %}{% endblock %}
+</body>
+
+</html>

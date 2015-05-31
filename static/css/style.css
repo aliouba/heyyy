@@ -1,0 +1,37 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Bitter:400);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+.fontsLobster{ 
+    font-family: 'Lobster', cursive;
+    color:#444;
+} 
+html,body {
+	height:100%;
+    font-family: 'Lato', sans-serif;
+    background-color:#E8E8E8;
+}
+
+a {
+	cursor: pointer;
+}
+
+.spacer {
+	margin-top: 20px;
+}
+
+.spacergauche {
+	margin-left: 20px;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #428BCA;
+  color: #ffffff;
+}
+
+.clickable {
+	cursor: pointer;
+}
+#navbar{
+    border-bottom: thick dotted #e38d13;
+}
